@@ -52,6 +52,7 @@ public:
 class historial {
 public:
 	string nombre;
+	int id;
 	string ruta;
 	historial* sig;
 }*his_primero,*his_ultimo;

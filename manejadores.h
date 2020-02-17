@@ -4,14 +4,15 @@ void in_lst(char c) {
 	nuevo->c = c;
 	int cx = 0;
 
-	if (crc_primero!=nullptr)
+	if (crc_primero==nullptr)
 	{
 		crc_primero = crc_ultimo = nuevo;
 		nuevo->index = 0;
 	}
 	else {
 		cx = crc_ultimo->index;
-		nuevo->index = ++cx;
+		cx++;
+		nuevo->index = cx;
 		crc_ultimo->sig = nuevo;
 		nuevo->prev = crc_ultimo;
 		crc_ultimo = nuevo;
@@ -41,19 +42,47 @@ void replaceAll(string& str, const string& from, const string& to) {
     }
 }
 
+void cambio_edd_reemp(){
+
+}
+
 
 
 void buscar_reemplazar(string busca, string nuevo) {
-	int total = busca.length();
-	bool x = false;
 	string sum="";
 	lst_caracteres* env=crc_primero;
 	while(env!=nullptr){
 		sum = sum + env->c;
 		env=env->sig;
 	}
-	replaceAll(sum,nuevo,busca);
+	replaceAll(sum,busca,nuevo);
 	truncar_lst();
 	insertar_texto(sum);
 
+}
+
+void add_archivos(string ruta){
+	historial* nuevo=new historial();
+	nuevo->ruta=ruta;
+	nuevo->nombre=ruta;
+	int id=0;
+	if(his_primero==nullptr){
+		nuevo->id=0;
+		his_primero=his_ultimo=nuevo;
+		nuevo->sig=his_primero;
+	}else{
+		id=his_ultimo->id;
+		id++;
+		nuevo->id=id;
+		his_ultimo->sig=nuevo;
+		his_ultimo=nuevo;
+		nuevo->sig=his_primero;
+	}
+}
+
+void ord_buscadas(string busq,string reemp){
+	
+	if(busc_primero==nullptr){
+
+	}
 }
