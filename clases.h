@@ -15,21 +15,20 @@ public:
 	string buscada;
 	string reempz;
 	bool estado;
-	string palabra;
 	int pos;
 	log_cambios* sig;
-	
+	string cadena;
 }*log_primero,*log_ultimo;
 
 //cambios revertidos
 class rev_cambios {
 public:
-	string buscada;
-	string reempz;
+	string buscada;//buscada
+	string reempz;//reemplazada
 	bool estado;
-	string palabra;
 	int pos;
 	rev_cambios* sig;
+	string cadena;
 }*rev_primero, *rev_ultimo;
 
 //palabras buscadas
@@ -46,7 +45,7 @@ public:
 	string bus;
 	string reemp;
 	reemplazadas* sig;
-}*reem_primero, reem_ultimo;
+}*reem_primero, *reem_ultimo;
 
 //historial de los archivos
 class historial {
@@ -56,3 +55,8 @@ public:
 	string ruta;
 	historial* sig;
 }*his_primero,*his_ultimo;
+
+class nx{
+public:
+	string txt;
+}*prin;
